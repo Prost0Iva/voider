@@ -64,5 +64,7 @@ offset_top = 303.0
 offset_right = 259.0
 offset_bottom = 375.0
 scale = Vector2(3, 3)
+text = "Play"
 icon = SubResource("AtlasTexture_youj7")
 flat = true
+icon_alignment = 1
