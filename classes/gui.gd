@@ -1,0 +1,13 @@
+class_name Gui
+
+static func init_buttons(tree: Node):
+	var buttons = tree.get_tree().get_nodes_in_group("Button")
+	for button in buttons:
+		button.mouse_entered.connect(_on_button_mouse_entered.bind(button))
+	for button in buttons:
+		button.mouse_exited.connect(_on_button_mouse_exited.bind(button))
+
+static func _on_button_mouse_entered(button: Node):
+	button.icon.region.position.x = 128
+static func _on_button_mouse_exited(button: Node):
+	button.icon.region.position.x = 0
