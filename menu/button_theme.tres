@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://dq8ik6xldycyi"]
+
+[ext_resource type="FontFile" uid="uid://c2nequ2hqdq0l" path="res://assets/fonts/Kagiraretapikuseru-Regular.otf" id="1_2rwyn"]
+
+[resource]
+default_base_scale = 2.0
+default_font = ExtResource("1_2rwyn")

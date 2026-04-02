@@ -1,74 +1,112 @@
 [gd_scene format=3 uid="uid://8dvjx5j3vcj6"]
 
+[ext_resource type="Script" uid="uid://pjh6bs8fqe61" path="res://menu/saves.gd" id="1_au0o8"]
 [ext_resource type="Texture2D" uid="uid://6qkp2erj4et3" path="res://assets/textures/gui/saves.png" id="1_kvnw0"]
 [ext_resource type="Texture2D" uid="uid://dnjnv8ujb5n1h" path="res://assets/textures/gui/button.png" id="2_xq5cc"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ia1r7"]
-atlas = ExtResource("2_xq5cc")
-region = Rect2(0, 0, 128, 64)
+[ext_resource type="FontFile" uid="uid://c2nequ2hqdq0l" path="res://assets/fonts/Kagiraretapikuseru-Regular.otf" id="4_dww2g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_au0o8"]
 atlas = ExtResource("2_xq5cc")
 region = Rect2(0, 0, 128, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_au0o8"]
+size = Vector2(384.46606, 192.233)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_dww2g"]
 atlas = ExtResource("2_xq5cc")
 region = Rect2(0, 0, 128, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dww2g"]
+size = Vector2(384.46606, 192.233)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3f4rt"]
+atlas = ExtResource("2_xq5cc")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cob4i"]
+size = Vector2(384.46606, 192.233)
+
 [node name="Saves" type="Node2D" unique_id=1731860222]
+script = ExtResource("1_au0o8")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1634810015]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=775892642]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1325931106]
+[node name="Background" type="Sprite2D" parent="CanvasLayer" unique_id=1325931106]
+position = Vector2(960, 540)
 scale = Vector2(3, 3)
 texture = ExtResource("1_kvnw0")
 
-[node name="Box" type="ColorRect" parent="." unique_id=64972452]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -308.0
-offset_top = -540.0
-offset_right = 308.0
-offset_bottom = 540.0
+[node name="Box" type="ColorRect" parent="CanvasLayer" unique_id=1713054428]
+process_mode = 4
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 701.0
+offset_right = -701.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.39215687)
 
-[node name="Save1" type="Button" parent="Box" unique_id=1822244456 groups=["Button"]]
-layout_mode = 0
-offset_left = 104.0
-offset_top = 288.0
-offset_right = 240.0
-offset_bottom = 360.0
+[node name="Button" type="Area2D" parent="CanvasLayer" unique_id=755748021 groups=["Button"]]
+position = Vector2(961, 444)
+
+[node name="Texture" type="Sprite2D" parent="CanvasLayer/Button" unique_id=865788955]
 scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_au0o8")
+
+[node name="Label" type="Label" parent="CanvasLayer/Button" unique_id=277248715]
+offset_left = -192.23302
+offset_top = -96.11651
+offset_right = 192.23302
+offset_bottom = 96.11652
+theme_override_fonts/font = ExtResource("4_dww2g")
+theme_override_font_sizes/font_size = 23
 text = "Save 1"
-icon = SubResource("AtlasTexture_ia1r7")
-flat = true
-icon_alignment = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Save2" type="Button" parent="Box" unique_id=139895587 groups=["Button"]]
-layout_mode = 0
-offset_left = 104.0
-offset_top = 538.0
-offset_right = 240.0
-offset_bottom = 610.0
-scale = Vector2(3, 3)
-text = "Save 2"
-icon = SubResource("AtlasTexture_au0o8")
-flat = true
-icon_alignment = 1
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Button" unique_id=1896922820]
+shape = SubResource("RectangleShape2D_au0o8")
 
-[node name="Save3" type="Button" parent="Box" unique_id=2139406887 groups=["Button"]]
-layout_mode = 0
-offset_left = 104.0
-offset_top = 788.0
-offset_right = 240.0
-offset_bottom = 860.0
+[node name="Button2" type="Area2D" parent="CanvasLayer" unique_id=255992584 groups=["Button"]]
+position = Vector2(961, 676)
+
+[node name="Texture" type="Sprite2D" parent="CanvasLayer/Button2" unique_id=835794787]
 scale = Vector2(3, 3)
-text = "Save 3"
-icon = SubResource("AtlasTexture_dww2g")
-flat = true
-icon_alignment = 1
+texture = SubResource("AtlasTexture_dww2g")
+
+[node name="Label" type="Label" parent="CanvasLayer/Button2" unique_id=2029943884]
+offset_left = -192.23302
+offset_top = -96.11651
+offset_right = 192.23302
+offset_bottom = 96.11652
+theme_override_fonts/font = ExtResource("4_dww2g")
+theme_override_font_sizes/font_size = 23
+text = "Save 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Button2" unique_id=424534601]
+shape = SubResource("RectangleShape2D_dww2g")
+
+[node name="Button3" type="Area2D" parent="CanvasLayer" unique_id=1467490055 groups=["Button"]]
+position = Vector2(961, 908)
+
+[node name="Texture" type="Sprite2D" parent="CanvasLayer/Button3" unique_id=976332496]
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_3f4rt")
+
+[node name="Label" type="Label" parent="CanvasLayer/Button3" unique_id=1915725865]
+offset_left = -192.23302
+offset_top = -96.11651
+offset_right = 192.23302
+offset_bottom = 96.11652
+theme_override_fonts/font = ExtResource("4_dww2g")
+theme_override_font_sizes/font_size = 23
+text = "Save 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Button3" unique_id=1314652387]
+shape = SubResource("RectangleShape2D_cob4i")
