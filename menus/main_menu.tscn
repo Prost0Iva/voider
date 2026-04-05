@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c2ejt1yjy16gm"]
 
 [ext_resource type="Texture2D" uid="uid://d4a7rjfrlic46" path="res://assets/textures/gui/main_menu_layer_1.png" id="1_1x3cv"]
-[ext_resource type="Script" uid="uid://dau3gj7ospqw0" path="res://menu/main_menu.gd" id="1_youj7"]
+[ext_resource type="Script" uid="uid://dau3gj7ospqw0" path="res://menus/main_menu.gd" id="1_youj7"]
 [ext_resource type="Texture2D" uid="uid://d1tdxyuh2x3d8" path="res://assets/textures/gui/main_menu_layer_2.png" id="2_jc45y"]
 [ext_resource type="Texture2D" uid="uid://dx6ew52lfurre" path="res://assets/textures/gui/main_menu_layer_3.png" id="3_s8mfa"]
 [ext_resource type="Texture2D" uid="uid://boy4ajrufooyp" path="res://assets/textures/gui/main_menu_layer_4.png" id="4_0tw43"]
@@ -24,28 +24,30 @@ region = Rect2(0, 0, 128, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qj3r"]
 size = Vector2(384.46606, 192.233)
 
-[node name="MainMenu" type="Node2D" unique_id=898899750]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmd75"]
+atlas = ExtResource("7_0tw43")
+region = Rect2(0, 0, 128, 64)
+
+[node name="MainMenu" type="Node2D" unique_id=2105701875]
 script = ExtResource("1_youj7")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=499683112]
-
-[node name="Background" type="Node2D" parent="CanvasLayer" unique_id=196340840]
+[node name="Background" type="Node2D" parent="." unique_id=196340840]
 position = Vector2(960, 540)
 scale = Vector2(3, 3)
 
-[node name="Layer" type="Sprite2D" parent="CanvasLayer/Background" unique_id=820350157]
+[node name="Layer" type="Sprite2D" parent="Background" unique_id=820350157]
 texture = ExtResource("1_1x3cv")
 
-[node name="Layer2" type="Sprite2D" parent="CanvasLayer/Background" unique_id=625165085]
+[node name="Layer2" type="Sprite2D" parent="Background" unique_id=625165085]
 texture = ExtResource("2_jc45y")
 
-[node name="Layer3" type="Sprite2D" parent="CanvasLayer/Background" unique_id=1092585257]
+[node name="Layer3" type="Sprite2D" parent="Background" unique_id=1092585257]
 texture = ExtResource("3_s8mfa")
 
-[node name="Layer4" type="Sprite2D" parent="CanvasLayer/Background" unique_id=1335477186]
+[node name="Layer4" type="Sprite2D" parent="Background" unique_id=1335477186]
 texture = ExtResource("4_0tw43")
 
-[node name="Box" type="ColorRect" parent="CanvasLayer" unique_id=108544426]
+[node name="Box" type="ColorRect" parent="." unique_id=108544426]
 process_mode = 4
 offset_left = -174.0
 offset_top = -149.0
@@ -54,24 +56,24 @@ offset_bottom = 311.0
 scale = Vector2(3, 3)
 color = Color(0, 0, 0, 0.39215687)
 
-[node name="Logo" type="Sprite2D" parent="CanvasLayer/Box" unique_id=895662622]
-position = Vector2(135, 114)
+[node name="Logo" type="Sprite2D" parent="Box" unique_id=895662622]
+position = Vector2(135, 99.000015)
 scale = Vector2(1.03, 1.03)
 texture = ExtResource("5_s8mfa")
 
-[node name="Label" type="Sprite2D" parent="CanvasLayer/Box" unique_id=1552910589]
-position = Vector2(165, 113.5)
+[node name="Label" type="Sprite2D" parent="Box" unique_id=1552910589]
+position = Vector2(165, 98.50001)
 scale = Vector2(1.03, 1.03)
 texture = ExtResource("6_0tw43")
 
-[node name="Button" type="Area2D" parent="CanvasLayer" unique_id=810931019 groups=["Button"]]
-position = Vector2(323, 412)
+[node name="Button" type="Area2D" parent="." unique_id=810931019 groups=["Button", "Default"]]
+position = Vector2(323, 377)
 
-[node name="Texture" type="Sprite2D" parent="CanvasLayer/Button" unique_id=1526020894]
+[node name="Texture" type="Sprite2D" parent="Button" unique_id=1526020894]
 scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_l5uyn")
 
-[node name="Label" type="Label" parent="CanvasLayer/Button" unique_id=2090834136]
+[node name="Label" type="Label" parent="Button" unique_id=2090834136]
 offset_left = -192.23302
 offset_top = -96.11651
 offset_right = 192.23302
@@ -82,26 +84,48 @@ text = "Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Button" unique_id=1274143333]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button" unique_id=1274143333]
 shape = SubResource("RectangleShape2D_l5uyn")
 
-[node name="Button2" type="Area2D" parent="CanvasLayer" unique_id=1021326109 groups=["Button"]]
-position = Vector2(323, 668)
+[node name="Button2" type="Area2D" parent="." unique_id=1021326109 groups=["Button", "Default"]]
+position = Vector2(323, 633)
 
-[node name="Texture" type="Sprite2D" parent="CanvasLayer/Button2" unique_id=657410976]
+[node name="Texture" type="Sprite2D" parent="Button2" unique_id=657410976]
 scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_youj7")
 
-[node name="Label" type="Label" parent="CanvasLayer/Button2" unique_id=918777890]
+[node name="Label" type="Label" parent="Button2" unique_id=918777890]
 offset_left = -192.23302
 offset_top = -96.11651
 offset_right = 192.23302
 offset_bottom = 96.11652
 theme_override_fonts/font = ExtResource("8_l5uyn")
 theme_override_font_sizes/font_size = 23
-text = "Play"
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button2" unique_id=439037984]
+shape = SubResource("RectangleShape2D_8qj3r")
+
+[node name="Button3" type="Area2D" parent="." unique_id=1839227628 groups=["Button", "Default"]]
+position = Vector2(323, 889)
+
+[node name="Texture" type="Sprite2D" parent="Button3" unique_id=1544855128]
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_vmd75")
+
+[node name="Label" type="Label" parent="Button3" unique_id=977411701]
+offset_left = -192.23302
+offset_top = -96.11651
+offset_right = 192.23302
+offset_bottom = 96.11652
+theme_override_fonts/font = ExtResource("8_l5uyn")
+theme_override_font_sizes/font_size = 23
+text = " Exit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Button2" unique_id=439037984]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button3" unique_id=826832470]
 shape = SubResource("RectangleShape2D_8qj3r")

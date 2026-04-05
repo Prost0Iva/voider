@@ -1,10 +1,10 @@
 extends Node2D
 
 @onready var background_layers = [
-	$CanvasLayer/Background/Layer,
-	$CanvasLayer/Background/Layer2,
-	$CanvasLayer/Background/Layer3,
-	$CanvasLayer/Background/Layer4
+	$Background/Layer,
+	$Background/Layer2,
+	$Background/Layer3,
+	$Background/Layer4
 ]
 
 func _ready() -> void:
