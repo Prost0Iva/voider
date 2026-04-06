@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://c2nequ2hqdq0l" path="res://assets/fonts/Kagiraretapikuseru-Regular.otf" id="2_1tvrn"]
 [ext_resource type="Texture2D" uid="uid://c0sjj3m3ybowr" path="res://assets/textures/gui/bar_layer_2.png" id="2_lc1nm"]
 [ext_resource type="Texture2D" uid="uid://b7ea1virkd0gb" path="res://assets/textures/gui/bar_layer_3.png" id="3_vqepp"]
+[ext_resource type="Texture2D" uid="uid://cjsevaepjer4c" path="res://assets/textures/characters/zoe_dialog.png" id="7_vqepp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i5345"]
 atlas = ExtResource("1_bujkf")
@@ -47,6 +48,7 @@ animations = [{
 size = Vector2(96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_87pl2"]
+atlas = ExtResource("7_vqepp")
 region = Rect2(0, 0, 145, 287)
 
 [node name="CharacterChoose" type="CanvasLayer" unique_id=1175550777]

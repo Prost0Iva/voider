@@ -26,6 +26,7 @@ func _on_button_mouse_entered(button: Node):
 	var info_anim = create_tween()
 	preview_anim.tween_property($CharacterPreview, "position:x", 1511, .4)
 	info_anim.tween_property($InfoPreview, "position:x", 34, .4)
+	init_info(button)
 func _on_button_mouse_exited(button: Node):
 	var texture = button.get_child(0)
 	var label = button.get_child(1)
@@ -38,3 +39,8 @@ func _on_button_mouse_exited(button: Node):
 func _on_button_input_event(viewport: Node, event: InputEvent, shape_idx: int):
 	if event.is_action_pressed("LeftClick"):
 		print("Watafa")
+
+func init_info(button: Node):
+	$CharacterPreview.texture.atlas = load("res://assets/textures/characters/" + CharactersInfo.character_choose[button.name].texture)
+	$InfoPreview/CharacterName.text = CharactersInfo.character_choose[button.name].name
+	$InfoPreview/CharacterDescription.text = CharactersInfo.character_choose[button.name].description
