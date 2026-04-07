@@ -4,11 +4,14 @@ extends CharacterBody2D
 var SPEED = 100.0
 var is_moving: bool = false
 
+func _enter_tree() -> void:
+	set_multiplayer_authority(name.to_int())
 
 func _physics_process(_delta: float) -> void:
-	z_index = position.y
-	move()
-	texture()
+	if is_multiplayer_authority():
+		z_index = position.y
+		move()
+		texture()
 
 func move():
 	var direction := Vector2(Input.get_axis("Left","Right"),Input.get_axis("Up","Down"))
