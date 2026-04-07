@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+var character = preload("res://characters/character.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,7 +16,7 @@ func init_buttons():
 	for button in buttons:
 		button.mouse_entered.connect(_on_button_mouse_entered.bind(button))
 		button.mouse_exited.connect(_on_button_mouse_exited.bind(button))
-		button.input_event.connect(_on_button_input_event)
+		button.input_event.connect(_on_button_input_event.bind(button))
 
 func _on_button_mouse_entered(button: Node):
 	var texture = button.get_child(0)
@@ -26,7 +27,7 @@ func _on_button_mouse_entered(button: Node):
 	var info_anim = create_tween()
 	preview_anim.tween_property($CharacterPreview, "position:x", 1511, .4)
 	info_anim.tween_property($InfoPreview, "position:x", 34, .4)
-	init_info(button)
+	init_info(button.name)
 func _on_button_mouse_exited(button: Node):
 	var texture = button.get_child(0)
 	var label = button.get_child(1)
@@ -35,12 +36,20 @@ func _on_button_mouse_exited(button: Node):
 	var preview_anim = create_tween()
 	var info_anim = create_tween()
 	preview_anim.tween_property($CharacterPreview, "position:x", 2511, .4)
-	info_anim.tween_property($InfoPreview, "position:x", -966, .4)
-func _on_button_input_event(viewport: Node, event: InputEvent, shape_idx: int):
-	if event.is_action_pressed("LeftClick"):
-		print("Watafa")
+	info_anim.tween_property($InfoPreview, "position:x", -1216, .4)
 
-func init_info(button: Node):
-	$CharacterPreview.texture.atlas = load("res://assets/textures/characters/" + CharactersInfo.character_choose[button.name].texture)
-	$InfoPreview/CharacterName.text = CharactersInfo.character_choose[button.name].name
-	$InfoPreview/CharacterDescription.text = CharactersInfo.character_choose[button.name].description
+func _on_button_input_event(viewport: Viewport, event: InputEvent, shape_idx: int, button: Node) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		init_character(button.name)
+		$".".visible = 0
+
+func init_info(character_name: String):
+	$CharacterPreview.texture.atlas = load("res://assets/textures/characters/" + CharactersInfo.character_choose[character_name].texture)
+	$InfoPreview/CharacterName.text = CharactersInfo.character_choose[character_name].name
+	$InfoPreview/CharacterDescription.text = CharactersInfo.character_choose[character_name].description
+
+func init_character(character_name: String):
+	var init_character = character.instantiate()
+	init_character.get_child(1).sprite_frames = load("res://assets/tres/characters_anim/" + CharactersInfo.character_choose[character_name].anim)
+	init_character.position = Vector2(CharactersInfo.character_choose[character_name].pos[0], CharactersInfo.character_choose[character_name].pos[1])
+	$"..".add_child(init_character)
