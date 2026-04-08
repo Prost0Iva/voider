@@ -66,14 +66,14 @@ position = Vector2(165, 98.50001)
 scale = Vector2(1.03, 1.03)
 texture = ExtResource("6_0tw43")
 
-[node name="Button" type="Area2D" parent="." unique_id=810931019 groups=["Button", "Default"]]
+[node name="Play" type="Area2D" parent="." unique_id=810931019 groups=["Button", "Default"]]
 position = Vector2(323, 377)
 
-[node name="Texture" type="Sprite2D" parent="Button" unique_id=1526020894]
+[node name="Texture" type="Sprite2D" parent="Play" unique_id=1526020894]
 scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_l5uyn")
 
-[node name="Label" type="Label" parent="Button" unique_id=2090834136]
+[node name="Label" type="Label" parent="Play" unique_id=2090834136]
 offset_left = -192.23302
 offset_top = -96.11651
 offset_right = 192.23302
@@ -84,17 +84,17 @@ text = "Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Button" unique_id=1274143333]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Play" unique_id=1274143333]
 shape = SubResource("RectangleShape2D_l5uyn")
 
-[node name="Button2" type="Area2D" parent="." unique_id=1021326109 groups=["Button", "Default"]]
+[node name="Settings" type="Area2D" parent="." unique_id=1021326109 groups=["Button", "Default"]]
 position = Vector2(323, 633)
 
-[node name="Texture" type="Sprite2D" parent="Button2" unique_id=657410976]
+[node name="Texture" type="Sprite2D" parent="Settings" unique_id=657410976]
 scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_youj7")
 
-[node name="Label" type="Label" parent="Button2" unique_id=918777890]
+[node name="Label" type="Label" parent="Settings" unique_id=918777890]
 offset_left = -192.23302
 offset_top = -96.11651
 offset_right = 192.23302
@@ -106,17 +106,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Button2" unique_id=439037984]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Settings" unique_id=439037984]
 shape = SubResource("RectangleShape2D_8qj3r")
 
-[node name="Button3" type="Area2D" parent="." unique_id=1839227628 groups=["Button", "Default"]]
+[node name="Exit" type="Area2D" parent="." unique_id=1839227628 groups=["Button", "Default"]]
 position = Vector2(323, 889)
 
-[node name="Texture" type="Sprite2D" parent="Button3" unique_id=1544855128]
+[node name="Texture" type="Sprite2D" parent="Exit" unique_id=1544855128]
 scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_vmd75")
 
-[node name="Label" type="Label" parent="Button3" unique_id=977411701]
+[node name="Label" type="Label" parent="Exit" unique_id=977411701]
 offset_left = -192.23302
 offset_top = -96.11651
 offset_right = 192.23302
@@ -127,5 +127,7 @@ text = " Exit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Button3" unique_id=826832470]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit" unique_id=826832470]
 shape = SubResource("RectangleShape2D_8qj3r")
+
+[connection signal="input_event" from="Play" to="." method="_on_play_input_event"]

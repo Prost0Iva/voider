@@ -22,3 +22,8 @@ func parallax():
 	for i in background_layers.size():
 		var layer = background_layers[i]
 		layer.position = offset * strengths[i]
+
+
+func _on_play_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event.is_action_pressed("LeftClick"):
+		get_tree().change_scene_to_file("res://menus/character_menu.tscn")
