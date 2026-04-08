@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dnjnv8ujb5n1h" path="res://assets/textures/gui/button.png" id="8_cevuo"]
 [ext_resource type="Script" uid="uid://bvj673osk56og" path="res://menus/multiplayer_test.gd" id="8_tsxsk"]
 [ext_resource type="FontFile" uid="uid://c2nequ2hqdq0l" path="res://assets/fonts/Kagiraretapikuseru-Regular.otf" id="9_tsxsk"]
+[ext_resource type="Script" uid="uid://dssiprf4nkkpm" path="res://menus/multiplayer_spawner.gd" id="11_tsxsk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4x4dc"]
 texture = ExtResource("2_sexyq")
@@ -96,7 +97,7 @@ vertical_alignment = 1
 shape = SubResource("RectangleShape2D_yl6qj")
 
 [node name="Join" type="Area2D" parent="MultiplayerTest" unique_id=1514165371 groups=["Button"]]
-position = Vector2(421, 923)
+position = Vector2(206, 923)
 scale = Vector2(0.5, 0.5)
 
 [node name="Texture" type="Sprite2D" parent="MultiplayerTest/Join" unique_id=1555532052]
@@ -118,15 +119,17 @@ vertical_alignment = 1
 shape = SubResource("RectangleShape2D_yl6qj")
 
 [node name="Adress" type="TextEdit" parent="MultiplayerTest/Join" unique_id=499942283]
-offset_left = -236.0
+offset_left = -192.0
 offset_top = -138.0
-offset_right = 236.0
+offset_right = 192.0
 offset_bottom = -96.0
 theme_override_fonts/font = ExtResource("9_tsxsk")
 placeholder_text = "Adress"
 
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1460785607]
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1705638696]
+_spawnable_scenes = PackedStringArray("uid://cdm6gwccs1co3")
 spawn_path = NodePath("..")
+script = ExtResource("11_tsxsk")
 
 [connection signal="input_event" from="MultiplayerTest/Host" to="MultiplayerTest" method="_on_host_input_event"]
 [connection signal="input_event" from="MultiplayerTest/Join" to="MultiplayerTest" method="_on_join_input_event"]

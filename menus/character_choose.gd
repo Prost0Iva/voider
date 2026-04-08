@@ -49,5 +49,5 @@ func init_character(character_name: String):
 	var init_character = character.instantiate()
 	init_character.get_child(1).sprite_frames = load("res://assets/tres/characters_anim/" + CharactersInfo.character_choose[character_name].anim)
 	init_character.position = Vector2(CharactersInfo.character_choose[character_name].pos[0], CharactersInfo.character_choose[character_name].pos[1])
-	init_character.name = "1"
+	init_character.name = character_name
 	$"..".add_child(init_character)

@@ -1,17 +1,25 @@
 extends CharacterBody2D
 
-
 var SPEED = 100.0
 var is_moving: bool = false
 
-func _enter_tree() -> void:
-	set_multiplayer_authority(name.to_int())
+var authority_id: int = 1
+
+func _enter_tree():
+	set_multiplayer_authority(authority_id)
+
+func _ready() -> void:
+	$Camera2D.enabled = is_multiplayer_authority()
 
 func _physics_process(_delta: float) -> void:
-	if is_multiplayer_authority():
-		z_index = position.y
-		move()
-		texture()
+	z_index = position.y
+	if not is_multiplayer_authority():
+		return
+	move()
+	texture()
+	
+	sync_position.rpc(position, $Texture.animation)
+
 
 func move():
 	var direction := Vector2(Input.get_axis("Left","Right"),Input.get_axis("Up","Down"))
@@ -35,3 +43,9 @@ func texture():
 		if velocity.x >= 0:
 			$Texture.animation = "walk_right"
 		else: $Texture.animation = "walk_left"
+
+@rpc("any_peer", "unreliable")
+func sync_position(new_pos: Vector2, new_anim):
+	if not is_multiplayer_authority():
+		position = new_pos
+		$Texture.animation = new_anim
