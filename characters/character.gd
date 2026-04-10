@@ -13,8 +13,7 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	z_index = position.y
-	if not is_multiplayer_authority():
-		return
+	if not is_multiplayer_authority(): return
 	move()
 	texture()
 	

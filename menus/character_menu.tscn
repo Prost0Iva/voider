@@ -71,6 +71,7 @@ texture = ExtResource("4_li7fd")
 [node name="CharacterChoose" parent="." unique_id=1175550777 instance=ExtResource("7_li7fd")]
 
 [node name="MultiplayerTest" type="CanvasLayer" parent="." unique_id=1970233979]
+visible = false
 script = ExtResource("8_tsxsk")
 
 [node name="Host" type="Area2D" parent="MultiplayerTest" unique_id=1435501401 groups=["Button"]]
