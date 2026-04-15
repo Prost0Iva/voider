@@ -7,9 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://c0sjj3m3ybowr" path="res://assets/textures/gui/bar_layer_2.png" id="3_7n5is"]
 [ext_resource type="Texture2D" uid="uid://b7ea1virkd0gb" path="res://assets/textures/gui/bar_layer_3.png" id="4_li7fd"]
 [ext_resource type="PackedScene" uid="uid://dnhlmhx7lvv1" path="res://menus/character_choose.tscn" id="7_li7fd"]
-[ext_resource type="Texture2D" uid="uid://dnjnv8ujb5n1h" path="res://assets/textures/gui/button.png" id="8_cevuo"]
-[ext_resource type="Script" uid="uid://bvj673osk56og" path="res://menus/multiplayer_test.gd" id="8_tsxsk"]
-[ext_resource type="FontFile" uid="uid://c2nequ2hqdq0l" path="res://assets/fonts/Kagiraretapikuseru-Regular.otf" id="9_tsxsk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4x4dc"]
 texture = ExtResource("2_sexyq")
@@ -28,17 +25,6 @@ tile_size = Vector2i(8, 8)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_4x4dc")
 sources/1 = SubResource("TileSetAtlasSource_li7fd")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xxnhu"]
-atlas = ExtResource("8_cevuo")
-region = Rect2(0, 0, 128, 64)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yl6qj"]
-size = Vector2(384.46606, 192.233)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yl6qj"]
-atlas = ExtResource("8_cevuo")
-region = Rect2(0, 0, 128, 64)
 
 [node name="CharacterMenu" type="Node2D" unique_id=1563588156]
 script = ExtResource("1_7x74t")
@@ -69,64 +55,3 @@ scale = Vector2(3, 3.0000005)
 texture = ExtResource("4_li7fd")
 
 [node name="CharacterChoose" parent="." unique_id=1175550777 instance=ExtResource("7_li7fd")]
-
-[node name="MultiplayerTest" type="CanvasLayer" parent="." unique_id=1970233979]
-script = ExtResource("8_tsxsk")
-
-[node name="Host" type="Area2D" parent="MultiplayerTest" unique_id=1435501401 groups=["Button"]]
-position = Vector2(206, 923)
-scale = Vector2(0.5, 0.5)
-
-[node name="Texture" type="Sprite2D" parent="MultiplayerTest/Host" unique_id=1428002435]
-scale = Vector2(3, 3)
-texture = SubResource("AtlasTexture_xxnhu")
-
-[node name="Label" type="Label" parent="MultiplayerTest/Host" unique_id=314135111]
-offset_left = -192.23302
-offset_top = -96.11651
-offset_right = 192.23302
-offset_bottom = 96.11652
-theme_override_fonts/font = ExtResource("9_tsxsk")
-theme_override_font_sizes/font_size = 23
-text = "Host"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MultiplayerTest/Host" unique_id=793205493]
-shape = SubResource("RectangleShape2D_yl6qj")
-
-[node name="Join" type="Area2D" parent="MultiplayerTest" unique_id=1514165371 groups=["Button"]]
-position = Vector2(421, 923)
-scale = Vector2(0.5, 0.5)
-
-[node name="Texture" type="Sprite2D" parent="MultiplayerTest/Join" unique_id=1555532052]
-scale = Vector2(3, 3)
-texture = SubResource("AtlasTexture_yl6qj")
-
-[node name="Label" type="Label" parent="MultiplayerTest/Join" unique_id=1605943666]
-offset_left = -192.23302
-offset_top = -96.11651
-offset_right = 192.23302
-offset_bottom = 96.11652
-theme_override_fonts/font = ExtResource("9_tsxsk")
-theme_override_font_sizes/font_size = 23
-text = "Join"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MultiplayerTest/Join" unique_id=347226030]
-shape = SubResource("RectangleShape2D_yl6qj")
-
-[node name="Adress" type="TextEdit" parent="MultiplayerTest/Join" unique_id=499942283]
-offset_left = -236.0
-offset_top = -138.0
-offset_right = 236.0
-offset_bottom = -96.0
-theme_override_fonts/font = ExtResource("9_tsxsk")
-placeholder_text = "Adress"
-
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1460785607]
-spawn_path = NodePath("..")
-
-[connection signal="input_event" from="MultiplayerTest/Host" to="MultiplayerTest" method="_on_host_input_event"]
-[connection signal="input_event" from="MultiplayerTest/Join" to="MultiplayerTest" method="_on_join_input_event"]

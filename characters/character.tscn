@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cdm6gwccs1co3"]
 
 [ext_resource type="Script" uid="uid://chjy0lvqut5ff" path="res://characters/character.gd" id="1_qqr4u"]
+[ext_resource type="SpriteFrames" uid="uid://dmmetejtfqj1x" path="res://assets/tres/characters_anim/zoe.tres" id="2_qqr4u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqr4u"]
 size = Vector2(26, 6)
@@ -10,16 +11,17 @@ y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_qqr4u")
 
-[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=898715783]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_qqr4u")
+[node name="Camera2D" type="Camera2D" parent="." unique_id=430752532]
+position = Vector2(0, -48)
+zoom = Vector2(1.7, 1.7)
 
 [node name="Texture" type="AnimatedSprite2D" parent="." unique_id=912122171]
 position = Vector2(0, -48)
 scale = Vector2(3, 3)
+sprite_frames = ExtResource("2_qqr4u")
 animation = &"default_left"
 autoplay = "default_left"
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=430752532]
-position = Vector2(0, -48)
-zoom = Vector2(3, 3)
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=898715783]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_qqr4u")
