@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cbvsxgytkc8ny"]
+
+[ext_resource type="Script" uid="uid://dbabrdkvyixi7" path="res://run/mobs/mob.gd" id="1_0edh8"]
+[ext_resource type="Texture2D" uid="uid://bkpds7ilpmp21" path="res://assets/textures/level/mobs/lizard.png" id="2_442cr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jek7o"]
+atlas = ExtResource("2_442cr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccfdr"]
+atlas = ExtResource("2_442cr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh07c"]
+atlas = ExtResource("2_442cr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xiy7"]
+atlas = ExtResource("2_442cr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0defp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jek7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccfdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xh07c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xiy7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0edh8"]
+size = Vector2(16, 15)
+
+[node name="Mob" type="CharacterBody2D" unique_id=1716389863]
+script = ExtResource("1_0edh8")
+SPEED = 100.0
+
+[node name="Texture" type="AnimatedSprite2D" parent="." unique_id=409133125]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_0defp")
+autoplay = "default"
+offset = Vector2(0, -16)
+
+[node name="Path" type="NavigationAgent2D" parent="." unique_id=1925123790]
+debug_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1704154438]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_0edh8")

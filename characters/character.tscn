@@ -10,17 +10,19 @@ size = Vector2(26, 6)
 y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_qqr4u")
+SPEED = 100.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=430752532]
 position = Vector2(0, -48)
 zoom = Vector2(1.7, 1.7)
 
 [node name="Texture" type="AnimatedSprite2D" parent="." unique_id=912122171]
-position = Vector2(0, -48)
+position = Vector2(77, -60)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("2_qqr4u")
 animation = &"default_left"
 autoplay = "default_left"
+offset = Vector2(-25.666668, 4)
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=898715783]
 position = Vector2(0, -3)
