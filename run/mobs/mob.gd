@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var SPEED: float
+@export var HEALTH: float
 
 @onready var _Texture = $Texture
 @onready var _Path = $Path

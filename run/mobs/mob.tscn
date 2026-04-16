@@ -50,6 +50,7 @@ SPEED = 100.0
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_0defp")
 autoplay = "default"
+frame_progress = 0.41855273
 offset = Vector2(0, -16)
 
 [node name="Path" type="NavigationAgent2D" parent="." unique_id=1925123790]
