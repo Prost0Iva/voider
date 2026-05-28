@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bqyx78c6kv8xc"]
+
+[ext_resource type="Texture2D" uid="uid://bnpkmv2iwtvgv" path="res://assets/textures/gui/title.png" id="1_1tq2j"]
+[ext_resource type="Script" uid="uid://c6i0mp3bfb4e7" path="res://run/levels/title.gd" id="1_2018m"]
+[ext_resource type="FontFile" uid="uid://c2nequ2hqdq0l" path="res://assets/fonts/Kagiraretapikuseru-Regular.otf" id="2_2018m"]
+
+[node name="Title" type="CanvasLayer" unique_id=443987929]
+script = ExtResource("1_2018m")
+
+[node name="Texture" type="Sprite2D" parent="." unique_id=1670212691]
+position = Vector2(960, 540)
+scale = Vector2(3, 3)
+texture = ExtResource("1_1tq2j")
+
+[node name="Text" type="Label" parent="." unique_id=1366465531]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_fonts/font = ExtResource("2_2018m")
+theme_override_font_sizes/font_size = 40
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
